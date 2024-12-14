@@ -39,6 +39,18 @@ class Validator {
       throw new Error(ERROR_MESSAGE.invalid__format);
     }
   }
+
+  validateHour(date, time) {
+    const day = DAY[date % 7];
+    const hour = Number(time.split(':')[0]);
+    const min = Number(time.split(':')[1]);
+    if (day === '월') {
+      if (!(hour >= 13 && hour <= 17 && min >= 0 && min <= 59))
+        throw new Error(ERROR_MESSAGE.invalid__format);
+    }
+    if (!(hour >= 10 && hour <= 17 && min >= 0 && min <= 59))
+      throw new Error(ERROR_MESSAGE.invalid__format);
+  }
 }
 
 export default Validator;
