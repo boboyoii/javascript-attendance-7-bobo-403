@@ -40,7 +40,7 @@ class Validator {
     }
   }
 
-  validateHour(date, time) {
+  validateTime(date, time) {
     const day = DAY[date % 7];
     const hour = Number(time.split(':')[0]);
     const min = Number(time.split(':')[1]);
