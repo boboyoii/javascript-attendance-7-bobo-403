@@ -8,3 +8,5 @@ export const ERROR_MESSAGE = Object.freeze({
   invalid_hour: `${PREFIX_ERROR} 캠퍼스 운영 시간에만 출석이 가능합니다.\n`,
   invalid_attendance: `${PREFIX_ERROR} 이미 출석을 확인하였습니다. 필요한 경우 수정 기능을 이용해 주세요.\n`,
 });
+
+export const HOLIDAY_DATE = [1, 7, 8, 14, 15, 21, 22, 25, 28, 29];
