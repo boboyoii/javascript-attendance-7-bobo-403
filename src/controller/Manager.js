@@ -63,6 +63,10 @@ class Manager {
       Console.print(error.message + '\n');
     }
   }
+
+  expulsioncCandidate() {
+    Console.print('제적 위험자 조회 결과');
+  }
 }
 
 export default Manager;

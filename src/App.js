@@ -22,7 +22,8 @@ class App {
         await this.#manager.editAttendance();
       if (featureNum === FEATURE_SELECTION[2])
         await this.#manager.attendanceRecord();
-      if (featureNum === FEATURE_SELECTION[3]) console.log('제직 위험자 확인');
+      if (featureNum === FEATURE_SELECTION[3])
+        this.#manager.expulsioncCandidate();
       if (featureNum === FEATURE_SELECTION[4]) reStart = false;
     } while (reStart);
   }
