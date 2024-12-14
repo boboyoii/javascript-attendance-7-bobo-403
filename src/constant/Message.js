@@ -23,14 +23,8 @@ export const DAY = Object.freeze({
 export const FEATURE_SELECTION = ['1', '2', '3', '4', 'Q'];
 
 export const PROGRESS_MESSAGE = Object.freeze({
-  enter_feature_num: (
-    date,
-    day
-  ) => `오늘은 12월 ${date}일 ${day}입니다. 기능을 선택해 주세요.\n 1. 출석 확인\n
-2. 출석 수정\n
-3. 크루별 출석 기록 확인\n
-4. 제적 위험자 확인\n
-Q. 종료\n`,
+  enter_feature_num: (date, day) =>
+    `오늘은 12월 ${date}일 ${day}입니다. 기능을 선택해 주세요.\n1. 출석 확인\n2. 출석 수정\n3. 크루별 출석 기록 확인\n4. 제적 위험자 확인\nQ. 종료\n`,
   enter_name: '닉네임을 입력해 주세요.\n',
   enter_time: '등교 시간을 입력해 주세요.\n',
   enter_edit_name: '출석을 수정하려는 크루의 닉네임을 입력해 주세요.\n',
