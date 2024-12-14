@@ -10,3 +10,11 @@ export const ERROR_MESSAGE = Object.freeze({
 });
 
 export const HOLIDAY_DATE = [1, 7, 8, 14, 15, 21, 22, 25, 28, 29];
+
+export const DAY = Object.freeze({
+  2: '월',
+  3: '화',
+  4: '수',
+  5: '목',
+  6: '금',
+});
