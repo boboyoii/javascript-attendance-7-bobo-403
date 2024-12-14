@@ -23,7 +23,7 @@ class Manager {
       const date = today.getDate();
       this.#validator.validateHoliday(date);
       const day = DAY[date % 7];
-      const name = await this.#userInput.inputName();
+      const name = await retry(() => this.#userInput.inputName());
       this.#validator.validateDupAttendance(name, date);
       const time = await retry(() => this.#userInput.inputTime());
       const state = this.#roll.setState(day, time);
@@ -31,8 +31,22 @@ class Manager {
         `\n${month}월 ${String(date).padStart(
           2,
           '0'
-        )}일 ${day}요일 ${name} ${state}\n`
+        )}일 ${day}요일 ${time} ${state}\n`
       );
+    } catch (error) {
+      Console.print(error.message + '\n');
+    }
+  }
+
+  async editAttendance() {
+    try {
+      const name = await retry(() => this.#userInput.inputEditName());
+      const date = await retry(() => this.#userInput.inputEditDate());
+      const time = await retry(() => this.#userInput.inputEditTime(date));
+      const day = DAY[date % 7];
+      const state = this.#roll.setState(day, time);
+      const origin = this.#roll.getOriginAttendance(name, date);
+      Console.print(`\n${origin} -> ${time} ${state}\n`);
     } catch (error) {
       Console.print(error.message + '\n');
     }
