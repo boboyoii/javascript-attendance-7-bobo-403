@@ -43,6 +43,12 @@ class Roll {
     if (hour >= 10 && min > 30) return '(결석)';
     return '(출석)';
   }
+
+  isExistName(name) {
+    const names = new Set(this.#rollList.map((roll) => roll.name));
+    if (names.has(name)) return true;
+    return false;
+  }
 }
 
 export default Roll;
