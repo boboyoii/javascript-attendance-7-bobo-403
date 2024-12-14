@@ -66,6 +66,17 @@ class Roll {
 
     return `${origin[0].month}월 ${origin[0].date}일 ${origin[0].day}요일 ${origin[0].time} ${origin[0].state}`;
   }
+
+  getAttendanceRecord(name) {
+    const records = this.#rollList
+      .filter((roll) => roll.name === name)
+      .map(
+        (my) =>
+          `${my.month}월 ${my.date}일 ${my.day}요일 ${my.time} ${my.state}`
+      );
+
+    return records;
+  }
 }
 
 export default Roll;
