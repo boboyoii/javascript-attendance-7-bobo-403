@@ -46,7 +46,19 @@ class Manager {
       const day = DAY[date % 7];
       const state = this.#roll.setState(day, time);
       const origin = this.#roll.getOriginAttendance(name, date);
-      Console.print(`\n${origin} -> ${time} ${state}\n`);
+      Console.print(`\n${origin} -> ${time} ${state} 수정 완료!\n`);
+    } catch (error) {
+      Console.print(error.message + '\n');
+    }
+  }
+
+  async attendanceRecord() {
+    try {
+      const name = await retry(() => this.#userInput.inputEditName());
+      const records = this.#roll.getAttendanceRecord(name);
+      records.forEach((record) => {
+        Console.print(record);
+      });
     } catch (error) {
       Console.print(error.message + '\n');
     }
