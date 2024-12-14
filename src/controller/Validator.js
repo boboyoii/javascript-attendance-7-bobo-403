@@ -3,7 +3,7 @@ import {
   ERROR_MESSAGE,
   FEATURE_SELECTION,
   HOLIDAY_DATE,
-} from '../constant/Message';
+} from '../constant/Message.js';
 
 class Validator {
   validateFeatureSelect(select) {
