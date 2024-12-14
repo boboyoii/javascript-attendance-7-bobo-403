@@ -54,7 +54,7 @@ class Manager {
 
   async attendanceRecord() {
     try {
-      const name = await retry(() => this.#userInput.inputEditName());
+      const name = await retry(() => this.#userInput.inputName());
       const records = this.#roll.getAttendanceRecord(name);
       records.forEach((record) => {
         Console.print(record);
