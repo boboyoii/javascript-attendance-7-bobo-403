@@ -23,7 +23,7 @@ class Roll {
     const time = splitDateTime[2].split(' ')[1];
     return {
       name: name,
-      month: splitDateTime[0],
+      month: splitDateTime[1],
       date: splitDateTime[2].split(' ')[0],
       day: day,
       time: time,
@@ -56,6 +56,15 @@ class Roll {
       .map((roll) => Number(roll.date));
     if (attendanceDate.includes(date)) return true;
     return false;
+  }
+
+  getOriginAttendance(name, date) {
+    const origin = this.#rollList.filter(
+      (roll) =>
+        roll.name === name && roll.date === String(date).padStart(2, '0')
+    );
+
+    return `${origin.month}월 ${origin.date}일 ${origin.day}요일 ${origin.time} ${origin.state}\n`;
   }
 }
 
