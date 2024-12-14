@@ -17,6 +17,12 @@ class UserInput {
     this.#validator.validateFeatureSelect(featureNum);
     return featureNum;
   }
+
+  async inputName() {
+    const name = await Console.readLineAsync(PROGRESS_MESSAGE.enter_name);
+    this.#validator.validateNickName(name);
+    return name;
+  }
 }
 
 export default UserInput;
