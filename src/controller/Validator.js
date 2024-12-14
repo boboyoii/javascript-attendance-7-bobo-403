@@ -51,6 +51,12 @@ class Validator {
     if (!(hour >= 10 && hour <= 17 && min >= 0 && min <= 59))
       throw new Error(ERROR_MESSAGE.invalid__format);
   }
+
+  validateDupAttendance(name, date) {
+    if (this.#roll.isAttendance(name, date)) {
+      throw new Error(ERROR_MESSAGE.invalid_attendance);
+    }
+  }
 }
 
 export default Validator;
