@@ -64,7 +64,7 @@ class Roll {
         roll.name === name && roll.date === String(date).padStart(2, '0')
     );
 
-    return `${origin[0].month}월 ${origin[0].date}일 ${origin[0].day}요일 ${origin[0].time} ${origin[0].state}\n`;
+    return `${origin[0].month}월 ${origin[0].date}일 ${origin[0].day}요일 ${origin[0].time} ${origin[0].state}`;
   }
 }
 
