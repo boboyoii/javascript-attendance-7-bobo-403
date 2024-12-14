@@ -49,6 +49,14 @@ class Roll {
     if (names.has(name)) return true;
     return false;
   }
+
+  isAttendance(name, date) {
+    const attendanceDate = this.#rollList
+      .filter((roll) => roll.name === name)
+      .map((roll) => Number(roll.date));
+    if (attendanceDate.includes(date)) return true;
+    return false;
+  }
 }
 
 export default Roll;
