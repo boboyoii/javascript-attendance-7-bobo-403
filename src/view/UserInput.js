@@ -23,6 +23,14 @@ class UserInput {
     this.#validator.validateNickName(name);
     return name;
   }
+
+  async inputTime() {
+    const time = await Console.readLineAsync(PROGRESS_MESSAGE.enter_time);
+    const today = DateTimes.now();
+    const date = today.getDate();
+    this.#validator.validateTime(date, time);
+    return time;
+  }
 }
 
 export default UserInput;
