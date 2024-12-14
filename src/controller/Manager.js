@@ -24,10 +24,15 @@ class Manager {
       this.#validator.validateHoliday(date);
       const day = DAY[date % 7];
       const name = await this.#userInput.inputName();
-      this.#validator.validateDupAttendance(name, Number(date));
+      this.#validator.validateDupAttendance(name, date);
       const time = await retry(() => this.#userInput.inputTime());
       const state = this.#roll.setState(day, time);
-      Console.print(`\n${month}월 ${date}일 ${day}요일 ${name} ${state}\n`);
+      Console.print(
+        `\n${month}월 ${String(date).padStart(
+          2,
+          '0'
+        )}일 ${day}요일 ${name} ${state}\n`
+      );
     } catch (error) {
       Console.print(error.message + '\n');
     }
