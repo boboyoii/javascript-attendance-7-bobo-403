@@ -1,10 +1,24 @@
+import fs from 'fs';
 import { DAY } from '../constant/Message.js';
 
 class Roll {
+  #rollList;
+
+  constructor() {
+    const file = fs.readFileSync('./public/attendances.csv', 'utf8');
+    this.#rollList = this.convertList(file);
+  }
+
+  convertList(file) {
+    const contents = file.split(/\r?\n/).slice(1, -1);
+    return contents.map((content) => {
+      return this.generateRollObject(content);
+    });
+  }
+
   generateRollObject(roll) {
     const [name, dateTime] = roll.split(',');
     const splitDateTime = dateTime.split('-');
-    console.log(splitDateTime);
     const day = DAY[splitDateTime[2].split(' ')[0] % 7];
     const time = splitDateTime[2].split(' ')[1];
     return {
@@ -30,3 +44,5 @@ class Roll {
     return '(출석)';
   }
 }
+
+export default Roll;
