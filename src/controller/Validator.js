@@ -1,3 +1,4 @@
+import { DateTimes } from '@woowacourse/mission-utils';
 import {
   DAY,
   ERROR_MESSAGE,
@@ -28,6 +29,14 @@ class Validator {
   validateHoliday(date) {
     if (HOLIDAY_DATE.includes(date)) {
       throw new Error(ERROR_MESSAGE.invalid_date(date, DAY[date % 7]));
+    }
+  }
+
+  validateDate(date) {
+    const today = DateTimes.now();
+    const todayDate = today.getDate();
+    if (Number(todayDate) < date) {
+      throw new Error(ERROR_MESSAGE.invalid__format);
     }
   }
 }
