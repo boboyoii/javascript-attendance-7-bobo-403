@@ -31,6 +31,24 @@ class UserInput {
     this.#validator.validateTime(date, time);
     return time;
   }
+
+  async inputEditName() {
+    const name = await Console.readLineAsync(PROGRESS_MESSAGE.enter_edit_name);
+    this.#validator.validateNickName(name);
+    return name;
+  }
+
+  async inputEditDate() {
+    const date = await Console.readLineAsync(PROGRESS_MESSAGE.enter_edit_date);
+    this.#validator.validateDate(Number(date));
+    return Number(date);
+  }
+
+  async inputEditTime(date) {
+    const time = await Console.readLineAsync(PROGRESS_MESSAGE.enter_edit_time);
+    this.#validator.validateTime(date, time);
+    return time;
+  }
 }
 
 export default UserInput;
